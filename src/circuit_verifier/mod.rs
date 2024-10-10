@@ -548,10 +548,12 @@ where
         let encoded_c = ctx.ecc_encode(c);
         let [proof_index, instance_offset, g_index] = config.absorb[i].0;
 
+        println!("scf-debug proof_index={:?} instance_offset={:?} g_index={:?}",proof_index,instance_offset,g_index);
         assert_eq!(
             instances[proof_index][instance_offset][g_index],
             encoded_c[0].val
         );
+
         assert_eq!(
             instances[proof_index][instance_offset][g_index + 1],
             encoded_c[1].val
